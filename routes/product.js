@@ -11,7 +11,7 @@ const {
   listRelated,
   listCategories,
   listBySearch,
-  photo,
+  photo,   
   listSearch
 } = require('../controllers/product');
 
@@ -21,17 +21,17 @@ const { requireSignin, isAdmin, isAuth } = require('../controllers/auth');
 
 // CRUD Methods
 router.get('/product/:productId', read);
-router.put(
+router.put(   
   '/product/:productId/:userId',
   requireSignin,
   isAuth,
-  isAdmin,
+  isAdmin,   
   update
 );
 router.delete(
   '/product/:productId/:userId',
   requireSignin,
-  isAuth,
+  isAuth,   
   isAdmin,
   remove
 );
@@ -42,7 +42,7 @@ router.get('/products', list);
 router.get('/products/search', listSearch);
 router.get('/products/related/:productId', listRelated);
 router.get('/products/categories', listCategories);
-router.get('/product/photo/:productId', photo);
+router.get('/product/photo/:productId', photo);  
 
 //Customed POST routes
 router.post('/products/by/search', listBySearch);
@@ -50,5 +50,5 @@ router.post('/products/by/search', listBySearch);
 //run the middleware finduserById when there is a param of :userId
 router.param('userId', userById);
 router.param('productId', productById);
-
+  
 module.exports = router;
