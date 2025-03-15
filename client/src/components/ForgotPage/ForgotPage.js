@@ -55,6 +55,14 @@ const ForgotPage = () => {
     </div>
   );
 
+  const showSuccess = () => (
+    <div
+      className="alert alert-info"
+      style={{ display: success ? '' : 'none' }}
+    >
+      We sent a reset password link to your email!
+    </div>
+  );
   
 
   return (
